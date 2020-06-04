@@ -1,6 +1,6 @@
 {
   "name": "cache-manager-redis-data-store",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This is a redis data store for node cache manager.",
   "keywords": [
     "node-cache-manager",
