@@ -1,25 +1,26 @@
 import * as Redis from 'ioredis';
+import {StoreConfig, TtlFunction } from 'cache-manager';
 
 export class CacheManagerRedisDataStorePlugin {
     private readonly redisCache: any;
     private readonly isCacheableValue: Function;
     private readonly defaultTtlValue: number;
 
-    constructor(...args) {
-        if (args.length > 0 && args[0].redisInstance) {
-            this.redisCache = args[0].redisInstance;
-        } else if (args.length > 0 && args[0].clusterConfig) {
+    constructor(storeOptions: StoreConfig) {
+        if (storeOptions.redisInstance) {
+            this.redisCache = storeOptions.redisInstance;
+        } else if (storeOptions.clusterConfig) {
             const {
                 nodes,
                 options
-            } = args[0].clusterConfig;
+            } = storeOptions.clusterConfig;
 
             this.redisCache = new Redis.Cluster(nodes, options || {});
         } else {
-            this.redisCache = new Redis(...args);
+            this.redisCache = new Redis(...storeOptions as any);
         }
-        this.isCacheableValue = this.redisCache.options.isCacheableValue || (value => value !== undefined && value !== null);
-        this.defaultTtlValue = this.redisCache.options.ttl || 0;
+        this.isCacheableValue = storeOptions.isCacheableValue || (value => value !== undefined && value !== null);
+        this.defaultTtlValue = storeOptions.ttl as number;
     }
 
     static handleResponse(callbackfn: (err: Error, result?: {}) => void, opts = {parse: false}) {
