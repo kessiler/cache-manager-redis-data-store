@@ -1,7 +1,7 @@
 {
-  "name": "cache-manager-redis-plugin",
+  "name": "cache-manager-redis-data-store",
   "version": "0.0.1",
-  "description": "This is a redis store for node cache manager.",
+  "description": "This is a redis data store for node cache manager.",
   "keywords": [
     "node-cache-manager",
     "cache-manager",
