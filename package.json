@@ -1,6 +1,6 @@
 {
   "name": "cache-manager-redis-data-store",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is a redis data store for node cache manager.",
   "keywords": [
     "node-cache-manager",
@@ -10,7 +10,7 @@
     "ioredis",
     "node_redis"
   ],
-  "input": "src/cache-manager-plugin.ts",
+  "input": "src/cache-manager-redis-data-store.ts",
   "main": "dist/cache-manager-redis-data-store.umd.js",
   "module": "dist/cache-manager-redis-data-store.es5.js",
   "typings": "dist/types/cache-manager-redis-data-store.d.ts",
