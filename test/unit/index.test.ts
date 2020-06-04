@@ -1,0 +1,2 @@
+describe('index.spec.ts', () => {
+})

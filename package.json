@@ -1,0 +1,91 @@
+{
+  "name": "cache-manager-redis-plugin",
+  "version": "0.0.1",
+  "description": "This is a redis store for node cache manager.",
+  "keywords": [
+    "node-cache-manager",
+    "cache-manager",
+    "store",
+    "redis",
+    "ioredis",
+    "node_redis"
+  ],
+  "input": "src/cache-manager-plugin.ts",
+  "main": "dist/cache-manager-redis-data-store.umd.js",
+  "module": "dist/cache-manager-redis-data-store.es5.js",
+  "typings": "dist/types/cache-manager-redis-data-store.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Kessiler Rodrigues <kessiler@users.noreply.github.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc --noEmit && rollup -c rollup.config.ts",
+    "test": "jest",
+    "test-coverage": "jest --coverage",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "ioredis": "^4.17.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-typescript": "^4.1.2",
+    "@types/ioredis": "^4.16.3",
+    "@types/jest": "^25.2.3",
+    "cache-manager": "^3.3.0",
+    "jest": "^26.0.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.13.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.3"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "collectCoverageFrom": [
+      "src/*.{js,ts}"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
